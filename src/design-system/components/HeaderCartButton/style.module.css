@@ -1,0 +1,20 @@
+.basketContainer {
+  position: relative;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.basketQuantity {
+  background-color: #0dcaf0;
+  height: 22px;
+  width: 22px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #000;
+  position: absolute;
+  top: -0.8rem;
+  font-weight: 600;
+  right: -0.5rem;
+  font-size: 12px;
+}
