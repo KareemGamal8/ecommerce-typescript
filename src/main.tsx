@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import "./App.css";
 import AppRouter from "./routes/AppRouter";
+import store from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <Provider store={store}>
     <AppRouter />
-  </React.StrictMode>
+  </Provider>
 );

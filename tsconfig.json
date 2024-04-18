@@ -21,7 +21,7 @@
       "@assets/*": ["src/assets/*"],
       "@design-system/*": ["src/design-system/*"],
       "@modules/*": ["src/modules/*"],
-      "store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"]
     },
 
     /* Linting */

@@ -1,4 +1,4 @@
-.product {
+.productWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   object-fit: contain;
 }
 
-.product h2 {
+.productWrapper h2 {
   font-size: 17px;
   margin-top: 9px;
   margin-bottom: 12px;
@@ -23,6 +23,6 @@
   text-overflow: ellipsis;
 }
 
-.product h3 {
+.productWrapper h3 {
   font-size: 13px;
 }

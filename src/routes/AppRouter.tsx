@@ -1,4 +1,4 @@
-import BaseLayout from "@design-system/BaseLayout";
+import BaseLayout from "@design-system/layouts/BaseLayout";
 import ErrorPage from "@design-system/pages/ErrorPage";
 import AboutUsPage from "@modules/about-us/pages/AboutUsPage";
 import LoginPage from "@modules/auth/pages/LoginPage";
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <CategoriesPage />,
       },
       {
-        path: "/products/:prefix",
+        path: "/categories/products/:prefix",
         element: <ProductsPage />,
         loader: ({ params }) => {
           if (

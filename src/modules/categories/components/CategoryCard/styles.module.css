@@ -1,10 +1,7 @@
-.category {
-  width: 180px;
-  height: 180px;
-}
-
 .categoryImg {
   overflow: hidden;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   background-color: #f2f2f2;
 }
@@ -14,6 +11,12 @@
 
 .categoryTitle {
   text-align: center;
-  font-size: 14px;
+  font-size: 1.2rem;
+  text-transform: capitalize;
   margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
 }
