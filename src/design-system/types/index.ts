@@ -13,4 +13,4 @@ export type Product = {
   price: string;
 };
 
-export type Loading = "idle" | "pending" | "fulfilled" | "rejected";
+export type LoadingTypes = "idle" | "pending" | "fulfilled" | "rejected";

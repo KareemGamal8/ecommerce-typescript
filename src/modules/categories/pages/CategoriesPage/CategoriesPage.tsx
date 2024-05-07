@@ -1,8 +1,10 @@
+import GridList from "@design-system/components/GridList";
+import Loading from "@design-system/components/Loading";
 import CategoryCard from "@modules/categories/components/CategoryCard";
 import getCategoriesAction from "@store/categories/actions/getCategoriesAction";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 export default function CategoriesPage() {
   const dispatch = useAppDispatch();
@@ -17,20 +19,14 @@ export default function CategoriesPage() {
     }
   }, [dispatch, records]);
 
-  if (records.length < 1) return "No Categories Found!";
-
   return (
     <Row>
-      {records.map((category) => (
-        <Col
-          key={category.id}
-          xs={6}
-          md={3}
-          className="d-flex justify-content-center mb-5 mt-2"
-        >
-          <CategoryCard category={category} />
-        </Col>
-      ))}
+      <Loading error={error} loading={loading}>
+        <GridList
+          records={records}
+          renderItem={(record) => <CategoryCard category={record} />}
+        />
+      </Loading>
     </Row>
   );
 }

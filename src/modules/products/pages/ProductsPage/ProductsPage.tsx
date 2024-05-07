@@ -1,9 +1,11 @@
+import GridList from "@design-system/components/GridList";
+import Loading from "@design-system/components/Loading";
 import ProductCard from "@modules/products/components/ProductCard";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import getProductsAction from "@store/products/actions/getProductsAction";
 import { productsCleanup } from "@store/products/productsSlice";
 import { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 export default function ProductsPage() {
@@ -20,16 +22,12 @@ export default function ProductsPage() {
 
   return (
     <Row>
-      {records.map((product) => (
-        <Col
-          key={product.id}
-          xs={6}
-          md={3}
-          className="d-flex justify-content-center mb-5 mt-2"
-        >
-          <ProductCard product={product} />
-        </Col>
-      ))}
+      <Loading error={error} loading={loading}>
+        <GridList
+          records={records}
+          renderItem={(record) => <ProductCard product={record} />}
+        />
+      </Loading>
     </Row>
   );
 }
