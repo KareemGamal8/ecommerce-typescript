@@ -11,6 +11,7 @@ export type Product = {
   cat_prefix: string;
   img: string;
   price: string;
+  quantity?: number;
 };
 
 export type LoadingTypes = "idle" | "pending" | "fulfilled" | "rejected";
