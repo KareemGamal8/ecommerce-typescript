@@ -1,16 +1,13 @@
 import { Product } from "@design-system/types";
-import { Button } from "react-bootstrap";
-import styles from "./styles.module.css";
-import { useAppDispatch } from "@store/hooks";
-import { addToCart } from "@store/cart/cartSlice";
+import styles from "../styles.module.css";
+import AddToCartButton from "../AddToCartButton";
+import React from "react";
 const { productWrapper, productImg } = styles;
 
-export default function ProductCard({ product }: { product: Product }) {
-  const dispatch = useAppDispatch();
+function _ProductCard({ product }: { product: Product }) {
+  const currentRemainingQuantity = product.max - (product.quantity ?? 0);
 
-  const addToCartHandler = () => {
-    dispatch(addToCart(product.id));
-  };
+  const quantityReachedToMax = currentRemainingQuantity <= 0 ? true : false;
 
   return (
     <div className={productWrapper}>
@@ -19,13 +16,22 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <h2>{product.title}</h2>
       <h3>{product.price} EGP</h3>
-      <Button
-        variant="info"
-        style={{ color: "white" }}
-        onClick={addToCartHandler}
-      >
-        Add to cart
-      </Button>
+      {quantityReachedToMax ? (
+        <p className="text-danger fw-semibold">You reached to the limit!</p>
+      ) : (
+        <p className="text-success fw-semibold">
+          You can add {currentRemainingQuantity} items(s)
+        </p>
+      )}
+
+      <AddToCartButton
+        product={product}
+        quantityReachedToMax={quantityReachedToMax}
+      />
     </div>
   );
 }
+
+const ProductCard = React.memo(_ProductCard);
+
+export default ProductCard;

@@ -1,10 +1,10 @@
-import { Category, Loading } from "@design-system/types";
 import { createSlice } from "@reduxjs/toolkit";
-import getCategoriesAction from "./actions/getCategoriesAction";
+import { Category, LoadingTypes } from "@design-system/types";
+import { getCategoriesAction } from "./categoriesActions";
 
 interface InitialStateTypes {
   records: Category[];
-  loading: Loading;
+  loading: LoadingTypes;
   error: string | null;
 }
 

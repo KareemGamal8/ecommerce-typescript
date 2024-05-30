@@ -8,10 +8,11 @@ export type Category = {
 export type Product = {
   id: number;
   title: string;
+  max: number;
   cat_prefix: string;
   img: string;
   price: string;
-  quantity?: number;
+  quantity?: number | undefined;
 };
 
 export type LoadingTypes = "idle" | "pending" | "fulfilled" | "rejected";
