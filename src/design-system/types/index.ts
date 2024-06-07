@@ -11,7 +11,7 @@ export type Product = {
   max: number;
   cat_prefix: string;
   img: string;
-  price: string;
+  price: number;
   quantity?: number | undefined;
 };
 

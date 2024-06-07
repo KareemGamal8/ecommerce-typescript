@@ -1,14 +1,19 @@
-import { Product } from "@design-system/types";
+import { LoadingTypes, Product } from "@design-system/types";
 import { createSlice } from "@reduxjs/toolkit";
+import { getCartItems } from "./cartActions";
 
 interface InitialStateTypes {
   items: { [key: number]: number };
-  productFullInfo: Product[];
+  productsFullInfo: Product[];
+  loading: LoadingTypes;
+  error: string | null;
 }
 
 const initialState: InitialStateTypes = {
   items: {},
-  productFullInfo: [],
+  productsFullInfo: [],
+  loading: "idle",
+  error: null,
 };
 
 const cartSlice = createSlice({
@@ -24,6 +29,22 @@ const cartSlice = createSlice({
         state.items[id] = 1;
       }
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(getCartItems.pending, (state) => {
+      state.loading = "pending";
+      state.error = null;
+    });
+    builder.addCase(getCartItems.fulfilled, (state, action) => {
+      state.loading = "fulfilled";
+      state.productsFullInfo = action.payload;
+    });
+    builder.addCase(getCartItems.rejected, (state, action) => {
+      state.loading = "rejected";
+      if (action.payload && typeof action.payload === "string") {
+        state.error = action.payload;
+      }
+    });
   },
 });
 

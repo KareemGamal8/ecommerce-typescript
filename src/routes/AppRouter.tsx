@@ -3,6 +3,7 @@ import ErrorPage from "@design-system/pages/ErrorPage";
 import AboutUsPage from "@modules/about-us/pages/AboutUsPage";
 import LoginPage from "@modules/auth/pages/LoginPage";
 import RegisterPage from "@modules/auth/pages/RegisterPage";
+import CartPage from "@modules/cart/pages/CartPage";
 import CategoriesPage from "@modules/categories/pages/CategoriesPage";
 import HomePage from "@modules/home/pages/HomePage";
 import ProductsPage from "@modules/products/pages/ProductsPage";
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUsPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/login",

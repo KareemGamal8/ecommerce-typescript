@@ -3,11 +3,14 @@ import styles from "./style.module.css";
 import { useAppSelector } from "@store/hooks";
 import { getCartQuantitySelector } from "@store/categories/categoriesSelectors";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const { basketContainer, basketQuantity, pumpCartQuantity } = styles;
 
 export default function HeaderCartButton() {
   const [isAnimated, setIsAnimated] = useState(false);
+
+  const navigate = useNavigate();
 
   const totalItems = useAppSelector(getCartQuantitySelector);
 
@@ -26,7 +29,7 @@ export default function HeaderCartButton() {
   }, [totalItems]);
 
   return (
-    <div className={basketContainer}>
+    <div className={basketContainer} onClick={() => navigate("/cart")}>
       <Cart />
       <span className={basketStyles}>{totalItems}</span>
     </div>
