@@ -33,3 +33,15 @@
 .cart_product h3 {
   font-size: 13px;
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.container span {
+  display: block;
+  font-size: 17px;
+  font-weight: bold;
+}

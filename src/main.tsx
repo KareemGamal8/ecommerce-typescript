@@ -10,7 +10,7 @@ import "./axios/axios-global.js";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <>
-    <Toaster position="top-right" />
+    <Toaster position="top-right"  />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <AppRouter />
